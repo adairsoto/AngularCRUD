@@ -1,0 +1,123 @@
+<div class="container"> 
+    
+        <button id="fontcolor" type="button" style="margin-bottom: 25px;" class="btn btn-sm btn-secondary" 
+            data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="ExibirFormularioCadastro()"> 
+            Cadastrar Funcionário 
+        </button> 
+    <table id="fontcolor" class="table table-striped table-hover table-sm " *ngIf="pessoas"> 
+          <tr class="thead-light"> 
+    
+            <th>Nome</th> 
+    
+            <th>Sobrenome</th> 
+    
+            <th>Idade</th> 
+    
+            <th>Profissão</th> 
+    
+          </tr> 
+    
+          <tr *ngFor="let pessoa of pessoas"> 
+            <td>{{pessoa.nome}}</td> 
+            <td>{{pessoa.sobreNome}}</td> 
+            <td>{{pessoa.idade}}</td> 
+            <td>{{pessoa.profissao}}</td> 
+            <td> 
+              <button type="button" class="bt btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" 
+              (click)="ExibirFormularioAtualizacao(pessoa.pessoaId)"><img height="25" src="assets/edit.png" alt=""></button> | 
+    
+              <button type="button" class="bt btn-sm" (click)="ExcluirPessoa(pessoa.pessoaId)"><img height="25" src="assets/delete.png" alt=""></button>
+            </td> 
+          </tr> 
+    </table> 
+</div> 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-body">
+              <div class="card">
+                  <div class="row">
+                      <div class="col-4 border border-light" 
+                      *ngIf="formulario">
+                      <h6>{{tituloFormulario}}</h6>
+                      <hr>
+                      <form [formGroup] = "formulario" (ngSubmit)="EnviarFormulario()">
+                          <div class="form-group">
+                              <label>Nome</label> 
+                              <input type="text" class = "fomr-control form-control-sm" formControlName="nome" />
+                          </div>
+              
+                          <div class="form-group">
+                              <label>SobreNome</label>  
+                              <input type="text" class = "fomr-control form-control-sm" formControlName="sobreNome" />
+                          </div>
+              
+                          <div class="form-group">
+                              <label>Idade</label> 
+                              <input type="number" class = "fomr-control form-control-sm" formControlName="idade" />
+                          </div>
+              
+                          <div class="form-group">
+                              <label>Profissão</label> 
+                              <input type="text" class = "fomr-control form-control-sm" formControlName="profissao" />
+                          </div>
+                          <div class="row">
+                            <div>
+                                <button type="submit" class="btn" data-bs-dismiss="modal"><img height="25" src="assets/save.png" alt=""></button> |
+                                <button type="button" class="btn" data-bs-dismiss="modal" aria-label="Close"><img height="25" src="assets/back.png" alt=""></button>
+                            </div>
+                        </div>
+                      </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+</div>
+
+<!-- <div class="container">
+
+    <div class="row">
+        <div class="col-6 border border-light rounded p-5 shadow" 
+        *ngIf="formulario">
+        <h6>{{tituloFormulario}}</h6>
+        <hr>
+        <form [formGroup] = "formulario" (ngSubmit)="EnviarFormulario()">
+            <div class="form-group">
+                <label>Nome</label> 
+                <input type="text" class = "fomr-control form-control-sm" formControlName="nome" />
+            </div>
+
+            <div class="form-group">
+                <label>SobreNome</label>  
+                <input type="text" class = "fomr-control form-control-sm" formControlName="sobreNome" />
+            </div>
+
+            <div class="form-group">
+                <label>idade</label> 
+                <input type="number" class = "fomr-control form-control-sm" formControlName="idade" />
+            </div>
+
+            <div class="form-group">
+                <label>Profissão</label> 
+                <input type="text" class = "fomr-control form-control-sm" formControlName="profissao" />
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                    <div class="pl-1">
+                        <button type="button" class="btn btn-primary" (click)="voltar()">Voltar</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        </div>
+        
+    </div>
+</div> -->

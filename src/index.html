@@ -7,7 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<style>
+  .banner{
+    margin-top: 100px;
+  }
+
+  #fontcolor {
+  color:lightgray;
+  font-family: 'Verdana';  
+  }
+  .grad {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(205,205,228,1) 100%, rgba(0,212,255,1) 100%);
+  }
+
+  #footer {
+      position: fixed;
+      padding: 10px 10px 0px 10px;
+      bottom: 0;
+      width: 100%;
+      /* Height of the footer*/ 
+      height: 40px;
+      /* background: grey; */
+  }
+</style>
+<body class="grad">
   <app-root></app-root>
 </body>
 </html>
